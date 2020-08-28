@@ -1,0 +1,4 @@
+server:
+  servlet:
+    context-path: /hu
+  port: 8080

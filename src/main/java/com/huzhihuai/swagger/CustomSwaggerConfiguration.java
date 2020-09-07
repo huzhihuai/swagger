@@ -37,7 +37,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class CustomSwaggerConfiguration {
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
+        return new Docket(DocumentationType.OAS_30).apiInfo(apiInfo()).select()
                 .apis(RequestHandlerSelectors.basePackage("com.huzhihuai"))
                 .paths(PathSelectors.any())
                 .build().securityContexts(Collections.singletonList(securityContext()))
@@ -62,14 +62,5 @@ public class CustomSwaggerConfiguration {
         return new ApiInfoBuilder().title("swagger测试").version("1.0").description("test").build();
     }
 
-    @Bean
-    UiConfiguration uiConfig() {
-        return UiConfigurationBuilder.builder().deepLinking(true).displayOperationId(false)
-                .defaultModelsExpandDepth(5).defaultModelExpandDepth(5)
-                .defaultModelRendering(ModelRendering.EXAMPLE).displayRequestDuration(false)
-                .docExpansion(DocExpansion.NONE).filter(false).maxDisplayedTags(null)
-                .operationsSorter(OperationsSorter.ALPHA).showExtensions(false).tagsSorter(TagsSorter.ALPHA)
-                .supportedSubmitMethods(UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS).validatorUrl(null)
-                .build();
-    }
+
 }

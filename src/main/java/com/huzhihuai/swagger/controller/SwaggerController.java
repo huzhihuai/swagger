@@ -33,4 +33,9 @@ public class SwaggerController {
     public String testPost2(){
         return "testPost";
     }
+
+    @PostMapping("test3")
+    public String testPost3(){
+        return "testPost";
+    }
 }
